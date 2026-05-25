@@ -1,0 +1,16 @@
+# Product Backlog
+
+## Funcionalidades Prioritárias
+
+| ID | Funcionalidade | Prioridade | Status |
+|----|----------------|------------|--------|
+| 01 | Tela de Login | Alta | Done |
+| 02 | Dashboard Principal | Alta | Done |
+| 03 | Cadastro de Pacientes | Alta | Done |
+| 04 | Histórico Clínico | Alta | Done |
+| 05 | Agendamento de Consultas | Alta | Done |
+| 06 | Controle Financeiro | Média | In Progress |
+| 07 | Filtros de Busca | Média | To Do |
+| 08 | Upload de Foto do Paciente | Baixa | Backlog |
+| 09 | Alertas de Conflito de Horário | Média | To Do |
+| 10 | Sistema de Notificações | Baixa | Backlog |
