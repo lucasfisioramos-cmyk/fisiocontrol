@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h1>Agendamentos</h1>
+
+        <a href="/appointments/new" class="btn btn-success">
+            Novo Agendamento
+        </a>
+
+    </div>
+
+    <div class="card shadow-sm border-0 rounded-4 p-4">
+
+        <table class="table align-middle">
+
+            <thead>
+                <tr>
+                    <th>Paciente</th>
+                    <th>Data</th>
+                    <th>Hora</th>
+                    <th>Tipo</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>João Silva</td>
+                    <td>12/05/2026</td>
+                    <td>14:00</td>
+                    <td>Retorno</td>
+                    <td>
+                        <span class="badge bg-success">
+                            Confirmado
+                        </span>
+                    </td>
+
+                    <td>
+                        <button class="btn btn-outline-success btn-sm">
+                            Visualizar
+                        </button>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

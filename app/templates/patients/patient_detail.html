@@ -1,0 +1,233 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="row">
+
+        <!-- SIDEBAR -->
+        <div class="col-md-2 bg-white shadow-sm min-vh-100 p-4">
+
+            <div class="text-center mb-5">
+                <img
+                    src="{{ url_for('static', filename='img/logo.png') }}"
+                    width="140"
+                    alt="FisioControl"
+                >
+            </div>
+
+            <ul class="nav flex-column">
+
+                <li class="nav-item mb-3">
+                    <a href="/" class="nav-link text-dark">
+                        Dashboard
+                    </a>
+                </li>
+
+                <li class="nav-item mb-3">
+                    <a href="/patients" class="nav-link text-success fw-bold">
+                        Pacientes
+                    </a>
+                </li>
+
+                <li class="nav-item mb-3">
+                    <a href="/appointments" class="nav-link text-dark">
+                        Agenda
+                    </a>
+                </li>
+
+                <li class="nav-item mb-3">
+                    <a href="/financial" class="nav-link text-dark">
+                        Financeiro
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- CONTEÚDO -->
+        <div class="col-md-10 p-5">
+
+            <!-- HEADER -->
+            <div class="d-flex justify-content-between align-items-center mb-5">
+
+                <div>
+                    <h1 class="fw-bold mb-1">
+                        João Silva
+                    </h1>
+
+                    <p class="text-muted">
+                        Paciente em tratamento
+                    </p>
+                </div>
+
+                <div>
+                    <button class="btn btn-outline-success me-2">
+                        Editar
+                    </button>
+
+                    <button class="btn btn-success">
+                        Novo Atendimento
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- PERFIL -->
+            <div class="card border-0 shadow-sm rounded-4 p-4 mb-4">
+
+                <div class="row align-items-center">
+
+                    <div class="col-md-2 text-center">
+
+                        <img
+                            src="https://placehold.co/140"
+                            class="rounded-circle img-fluid border"
+                            alt="Paciente"
+                        >
+
+                    </div>
+
+                    <div class="col-md-10">
+
+                        <div class="row">
+
+                            <div class="col-md-4 mb-3">
+                                <small class="text-muted">
+                                    Telefone
+                                </small>
+
+                                <p class="fw-semibold">
+                                    (19) 99999-9999
+                                </p>
+                            </div>
+
+                            <div class="col-md-4 mb-3">
+                                <small class="text-muted">
+                                    E-mail
+                                </small>
+
+                                <p class="fw-semibold">
+                                    joao@email.com
+                                </p>
+                            </div>
+
+                            <div class="col-md-4 mb-3">
+                                <small class="text-muted">
+                                    Convênio
+                                </small>
+
+                                <p class="fw-semibold">
+                                    Particular
+                                </p>
+                            </div>
+
+                            <div class="col-md-4 mb-3">
+                                <small class="text-muted">
+                                    Data de nascimento
+                                </small>
+
+                                <p class="fw-semibold">
+                                    10/03/1985
+                                </p>
+                            </div>
+
+                            <div class="col-md-4 mb-3">
+                                <small class="text-muted">
+                                    Status
+                                </small>
+
+                                <p>
+                                    <span class="badge bg-success">
+                                        Ativo
+                                    </span>
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- HISTÓRICO -->
+            <div class="card border-0 shadow-sm rounded-4 p-4">
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
+
+                    <h3 class="fw-bold">
+                        Histórico Clínico
+                    </h3>
+
+                    <button class="btn btn-outline-success btn-sm">
+                        Adicionar Evolução
+                    </button>
+
+                </div>
+
+                <!-- ITEM HISTÓRICO -->
+                <div class="border rounded-4 p-4 mb-3">
+
+                    <div class="d-flex justify-content-between mb-2">
+
+                        <strong>
+                            10/05/2026
+                        </strong>
+
+                        <span class="badge bg-light text-dark">
+                            Retorno
+                        </span>
+
+                    </div>
+
+                    <p class="mb-2">
+                        Paciente relata melhora parcial da dor lombar,
+                        mantendo desconforto ao permanecer sentado por
+                        longos períodos.
+                    </p>
+
+                    <small class="text-muted">
+                        Conduta: mobilização lombar + exercícios de estabilidade.
+                    </small>
+
+                </div>
+
+                <!-- ITEM HISTÓRICO -->
+                <div class="border rounded-4 p-4 mb-3">
+
+                    <div class="d-flex justify-content-between mb-2">
+
+                        <strong>
+                            02/05/2026
+                        </strong>
+
+                        <span class="badge bg-light text-dark">
+                            Avaliação
+                        </span>
+
+                    </div>
+
+                    <p class="mb-2">
+                        Queixa principal de dor lombar há 6 meses,
+                        piora ao final do dia.
+                    </p>
+
+                    <small class="text-muted">
+                        Conduta: avaliação funcional e início do plano terapêutico.
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,9 @@
+body {
+    background-color: #F5F7F7;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card {
+    border: none;
+    border-radius: 16px;
+}

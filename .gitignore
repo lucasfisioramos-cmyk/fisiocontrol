@@ -1,1 +1,52 @@
-/.venv
+# Ambiente virtual
+.venv/
+venv/
+
+# Variáveis de ambiente
+.env
+
+# Cache Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# SQLite
+*.db
+*.sqlite3
+
+# Flask instance
+instance/
+
+# Migrations cache
+*.stamp
+
+# VS Code
+.vscode/
+
+# JetBrains
+.idea/
+
+# MacOS
+.DS_Store
+
+# Logs
+*.log
+
+# Coverage / testes
+htmlcov/
+.coverage
+.pytest_cache/
+
+# Arquivos temporários
+tmp/
+temp/
+
+# Node modules (caso use frontend depois)
+node_modules/
+
+# Uploads temporários
+uploads/
+
+# Sistema operacional Windows
+Thumbs.db

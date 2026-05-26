@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="card border-0 shadow-sm rounded-4 p-5">
+
+        <h2 class="mb-4">
+            Novo Agendamento
+        </h2>
+
+        <form>
+
+            <div class="mb-3">
+                <label class="form-label">
+                    Paciente
+                </label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Nome do paciente"
+                >
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">
+                        Data
+                    </label>
+
+                    <input
+                        type="date"
+                        class="form-control"
+                    >
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">
+                        Hora
+                    </label>
+
+                    <input
+                        type="time"
+                        class="form-control"
+                    >
+
+                </div>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Tipo de Consulta
+                </label>
+
+                <select class="form-select">
+
+                    <option>
+                        Avaliação
+                    </option>
+
+                    <option>
+                        Retorno
+                    </option>
+
+                    <option>
+                        Pilates
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="mb-4">
+
+                <label class="form-label">
+                    Observações
+                </label>
+
+                <textarea
+                    class="form-control"
+                    rows="4"
+                ></textarea>
+
+            </div>
+
+            <button class="btn btn-success">
+                Salvar Agendamento
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
