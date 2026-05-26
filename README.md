@@ -8,6 +8,9 @@ Gerenciar pacientes, consultas e acompanhamento clínico.
 ## Tecnologias/Ferramentas
 - Figma
 - GitHub Projects
+- Flask
+- MySQL (mariadb)
+- AWS 
 - Scrum
 
 ## Estrutura do Projeto
@@ -15,6 +18,7 @@ Gerenciar pacientes, consultas e acompanhamento clínico.
 - Mockups
 - Protótipo
 - Documentação Scrum
+- MVP
 
 ## Funcionalidades
 - Cadastro de pacientes
