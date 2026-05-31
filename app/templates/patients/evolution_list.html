@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h1>Evoluções</h1>
+
+        <a href="{{ url_for('patients.evolution_form', id=patient_id) }}"
+           class="btn btn-success">
+            Nova Evolução
+        </a>
+
+    </div>
+
+    <div class="card shadow-sm rounded-4">
+
+        <div class="card-body">
+
+            <table class="table table-hover">
+
+                <thead>
+
+                    <tr>
+                        <th>Data</th>
+                        <th>Resumo</th>
+                        <th>Ações</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>25/05/2026</td>
+
+                        <td>
+                            Exercícios de mobilidade lombar e fortalecimento de tronco.
+                        </td>
+
+                        <td>
+                            <button class="btn btn-outline-primary btn-sm">
+                                Visualizar
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>20/05/2026</td>
+
+                        <td>
+                            Reavaliação funcional e progressão de carga.
+                        </td>
+
+                        <td>
+                            <button class="btn btn-outline-primary btn-sm">
+                                Visualizar
+                            </button>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

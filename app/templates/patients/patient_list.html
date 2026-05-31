@@ -1,13 +1,13 @@
+{% extends 'base.html' %}
+
 {% block content %}
 
 <div class="container mt-5">
 
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1>Pacientes</h1>
-
-        <button class="btn btn-success">
-            Novo Paciente
-        </button>
+        <a href="{{ url_for('patients.patient_form') }}"
+        class="btn btn-success">Novo Paciente</a>
     </div>
 
     <div class="card shadow-sm p-4">
@@ -28,10 +28,12 @@
                     <td>(19) 99999-9999</td>
                     <td>Ativo</td>
                     <td>
-                        <button class="btn btn-outline-success btn-sm">
-                            Visualizar
-                        </button>
-                    </td>
+    <a href="{{ url_for('patients.patient_profile', id=1) }}"
+       class="btn btn-outline-success btn-sm">
+        Visualizar
+    </a>
+</td>
+
                 </tr>
             </tbody>
         </table>

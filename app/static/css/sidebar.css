@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    font-family: 'Poppins', sans-serif;
+
+    background: #f5f7fb;
+}
+
+.app-layout {
+
+    display: flex;
+}
+
+/* SIDEBAR */
+
+#sidebarContainer {
+    width: auto;
+    height: 100vh;
+    background: var(--primary-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+/* LOGO */
+
+.sidebar-logo {
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.sidebar-logo img {
+
+    height: 130px;
+    object-fit: contain;
+}
+
+/* SIDEBAR NAV */
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 5px;
+}
+.sidebar-links {
+    
+    text-decoration: none;
+    list-style: none;
+}
+
+.sidebar-links a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    color: var(--secondary-color);
+    text-decoration: none;
+    border-radius: 12px;
+    transition: 0.2s;
+}
+
+.sidebar-links a:hover {
+
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+}
+
+.sidebar-links i {
+
+    font-size: 20px;
+}
+
+/* OVERLAY */
+
+.sidebar-overlay {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.5);
+
+    z-index: 999;
+}
+
+/* MOBILE BUTTON */
+
+.close-sidebar {
+
+    display: none;
+
+    border: none;
+    background: none;
+
+    color: white;
+
+    font-size: 22px;
+}
+
+/* MAIN */
+
+.main-wrapper {
+
+    margin-left: 260px;
+
+    width: 100%;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .sidebar-container {
+
+        transform: translateX(-100%);
+    }
+
+    .sidebar-container.active {
+
+        transform: translateX(0);
+    }
+
+    .sidebar-overlay.active {
+
+        display: block;
+    }
+
+    .main-wrapper {
+
+        margin-left: 0;
+    }
+
+    .close-sidebar {
+
+        display: block;
+    }
+}
