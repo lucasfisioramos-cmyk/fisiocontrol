@@ -2,100 +2,120 @@
 
 {% block content %}
 
-<div class="container mt-5">
+<div class="container mt-4">
 
-    <div class="card border-0 shadow-sm rounded-4 p-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
 
-        <h2 class="mb-4">
-            Novo Agendamento
-        </h2>
+        <h1>Novo Agendamento</h1>
 
-        <form>
+        <a href="{{ url_for('appointments.appointment_list') }}"
+           class="btn btn-outline-secondary">
+            Voltar
+        </a>
 
-            <div class="mb-3">
-                <label class="form-label">
-                    Paciente
-                </label>
+    </div>
 
-                <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Nome do paciente"
-                >
-            </div>
+    <div class="card shadow-sm rounded-4">
 
-            <div class="row">
+        <div class="card-body">
 
-                <div class="col-md-6 mb-3">
+            <form method="POST">
 
-                    <label class="form-label">
-                        Data
-                    </label>
+                <div class="row">
 
-                    <input
-                        type="date"
-                        class="form-control"
-                    >
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+                            Paciente
+                        </label>
+
+                        <select
+                            name="patient_id"
+                            class="form-select"
+                            required>
+
+                            <option value="">
+                                Selecione um paciente
+                            </option>
+
+                            {% for patient in patients %}
+
+                            <option value="{{ patient.id }}">
+                                {{ patient.full_name }}
+                            </option>
+
+                            {% endfor %}
+
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+                            Status
+                        </label>
+
+                        <select
+                            name="status"
+                            class="form-select">
+
+                            <option value="scheduled">
+                                Agendado
+                            </option>
+
+                            <option value="confirmed">
+                                Confirmado
+                            </option>
+
+                        </select>
+
+                    </div>
 
                 </div>
 
-                <div class="col-md-6 mb-3">
+                <div class="mb-3">
 
                     <label class="form-label">
-                        Hora
+                        Data e Hora
                     </label>
 
                     <input
-                        type="time"
+                        type="datetime-local"
+                        name="appointment_date"
                         class="form-control"
-                    >
+                        required>
 
                 </div>
 
-            </div>
+                <div class="mb-4">
 
-            <div class="mb-3">
+                    <label class="form-label">
+                        Observações
+                    </label>
 
-                <label class="form-label">
-                    Tipo de Consulta
-                </label>
+                    <textarea
+                        name="notes"
+                        rows="5"
+                        class="form-control"></textarea>
 
-                <select class="form-select">
+                </div>
 
-                    <option>
-                        Avaliação
-                    </option>
+                <div class="d-flex justify-content-end">
 
-                    <option>
-                        Retorno
-                    </option>
+                    <button
+                        type="submit"
+                        class="btn btn-success">
 
-                    <option>
-                        Pilates
-                    </option>
+                        Salvar Agendamento
 
-                </select>
+                    </button>
 
-            </div>
+                </div>
 
-            <div class="mb-4">
+            </form>
 
-                <label class="form-label">
-                    Observações
-                </label>
-
-                <textarea
-                    class="form-control"
-                    rows="4"
-                ></textarea>
-
-            </div>
-
-            <button class="btn btn-success">
-                Salvar Agendamento
-            </button>
-
-        </form>
+        </div>
 
     </div>
 

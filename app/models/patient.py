@@ -59,7 +59,8 @@ class Patient(db.Model):
     appointments = db.relationship(
         'Appointment',
         backref='patient',
-        lazy=True
+        lazy=True,
+        cascade='all, delete-orphan'
     )
 
     treatment_plan = db.relationship(
@@ -67,5 +68,13 @@ class Patient(db.Model):
         uselist=False,
         backref='patient'
     )
+
+    financial_records = db.relationship(
+    'Financial',
+    backref='patient',
+    lazy=True,
+    cascade='all, delete-orphan'
+    )
+    
     def __repr__(self):
         return f'<Patient {self.full_name}>'

@@ -1,4 +1,9 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request, redirect, url_for
+
+from app.services.patient_service import (
+    create_patient,
+    get_all_patients
+                                          )
 
 patient_bp = Blueprint(
     'patients',
@@ -8,11 +13,22 @@ patient_bp = Blueprint(
 
 @patient_bp.route('/')
 def patient_list():
+    patients = get_all_patients()
     return render_template('patients/patient_list.html')
 
 @patient_bp.route('/new')
 def patient_form():
-    return render_template('patients/patient_form.html')
+    if request.method == 'POST':
+
+        create_patient(request.form)
+
+        return redirect(
+            url_for('patients.patient_list')
+        )
+
+    return render_template(
+        'patients/patient_form.html'
+    )
 
 @patient_bp.route('/<int:id>')
 def patient_profile(id):

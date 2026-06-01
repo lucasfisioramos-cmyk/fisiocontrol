@@ -21,7 +21,9 @@ class Appointment(db.Model):
     )
 
     status = db.Column(
-        db.String(30)
+        db.String(30),
+        nullable=False,
+        default='scheduled'
     )
 
     notes = db.Column(

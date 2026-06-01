@@ -16,14 +16,12 @@
 
     <div class="card shadow-sm border-0 rounded-4 p-4">
 
-        <table class="table align-middle">
+        <table class="table">
 
             <thead>
                 <tr>
                     <th>Paciente</th>
                     <th>Data</th>
-                    <th>Hora</th>
-                    <th>Tipo</th>
                     <th>Status</th>
                     <th></th>
                 </tr>
@@ -31,23 +29,36 @@
 
             <tbody>
 
+                {% for appointment in appointments %}
+
                 <tr>
-                    <td>João Silva</td>
-                    <td>12/05/2026</td>
-                    <td>14:00</td>
-                    <td>Retorno</td>
+
                     <td>
-                        <span class="badge bg-success">
-                            Confirmado
-                        </span>
+                        {{ appointment.patient.full_name }}
                     </td>
 
                     <td>
-                        <button class="btn btn-outline-success btn-sm">
-                            Visualizar
-                        </button>
+                        {{ appointment.appointment_date }}
                     </td>
+
+                    <td>
+                        {{ appointment.status }}
+                    </td>
+
+                    <td>
+
+                        <a href="{{ url_for('appointments.appointment_detail',
+                    id=appointment.id) }}" class="btn btn-sm btn-outline-primary">
+
+                            Visualizar
+
+                        </a>
+
+                    </td>
+
                 </tr>
+
+                {% endfor %}
 
             </tbody>
 

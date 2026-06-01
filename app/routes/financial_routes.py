@@ -1,11 +1,45 @@
-from flask import Blueprint, render_template
-
+from flask import Blueprint, render_template, request, redirect, url_for
+from app.services.financial_service import(
+    get_all_records,
+    create_record
+)
+from app.services.patient_service import (
+    get_all_patients
+)
 
 financial_bp = Blueprint(
     'financial',
     __name__,
     url_prefix='/financial'
 )
+
+@financial_bp.route('/')
+def financial_list():
+
+    records = get_all_records()
+
+    return render_template(
+        'financial/financial_list.html',
+        records=records
+    )
+
+@financial_bp.route('/new', methods=['GET', 'POST'])
+def financial_form():
+
+    if request.method == 'POST':
+
+        create_record(request.form)
+
+        return redirect(
+            url_for('financial.financial_list')
+        )
+
+    patients = get_all_patients()
+
+    return render_template(
+        'financial/financial_form.html',
+        patients=patients
+    )
 
 
 @financial_bp.route('/')
