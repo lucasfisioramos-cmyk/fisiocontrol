@@ -27,4 +27,6 @@ def create_app():
     app.register_blueprint(appointment_bp)
     app.register_blueprint(financial_bp)
 
+    from app import models
+
     return app

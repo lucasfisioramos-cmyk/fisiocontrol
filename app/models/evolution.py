@@ -1,40 +1,23 @@
 from datetime import datetime, UTC
-
 from app import db
 
 
-class Appointment(db.Model):
+class Evolution(db.Model):
 
-    __tablename__ = 'appointments'
-
+    __tablename__ = 'evolutions'
     id = db.Column(db.Integer, primary_key=True)
-
     patient_id = db.Column(
         db.Integer,
         db.ForeignKey('patients.id'),
         nullable=False
     )
-
-    appointment_date = db.Column(
-        db.DateTime,
+    description = db.Column(
+        db.Text,
         nullable=False
     )
-
-    status = db.Column(
-        db.String(30)
-    )
-
-    notes = db.Column(
-        db.Text
-    )
-
     created_at = db.Column(
         db.DateTime,
         default=lambda: datetime.now(UTC)
     )
     def __repr__(self):
-        return (
-            f'<Appointment '
-            f'{self.patient_id} '
-            f'{self.appointment_date}>'
-        )
+        return f'<Evolution {self.id}>'
