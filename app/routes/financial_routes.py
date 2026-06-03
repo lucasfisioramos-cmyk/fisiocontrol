@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
+from flask_login import login_required
 from app.services.financial_service import(
     get_all_records,
     create_record
@@ -14,6 +15,7 @@ financial_bp = Blueprint(
 )
 
 @financial_bp.route('/')
+@login_required
 def financial_list():
 
     records = get_all_records()
@@ -24,6 +26,7 @@ def financial_list():
     )
 
 @financial_bp.route('/new', methods=['GET', 'POST'])
+@login_required
 def financial_form():
 
     if request.method == 'POST':
@@ -43,5 +46,6 @@ def financial_form():
 
 
 @financial_bp.route('/')
+@login_required
 def financial_dashboard():
     return render_template('financial/financial_dashboard.html')

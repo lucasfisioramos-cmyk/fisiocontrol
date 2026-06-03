@@ -12,5 +12,13 @@
         <div class="user-menu"><i class="bi bi-person-square"></i>
              <!--<img src="{{ url_for('static', filename='img/avatar.jpg') }}" alt="Usuário">-->
             <span>Lucas</span> </div>
+{% if current_user.is_authenticated %}
+                <li>
+                    <a href="{{ url_for('auth.logout') }}">
+                        Sair
+                    </a>
+                </li>
+
+{% endif %}
     </div>
 </nav>

@@ -1,5 +1,5 @@
 from datetime import datetime, UTC
-from app import db
+from app.extensions import db
 
 
 class Evolution(db.Model):
