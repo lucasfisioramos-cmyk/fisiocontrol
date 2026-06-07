@@ -1,0 +1,267 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Anamnese</h1>
+
+        <a href="{{ url_for('patients.patient_profile', id=patient_id) }}"
+           class="btn btn-outline-secondary">
+            Voltar ao Perfil
+        </a>
+    </div>
+
+    <form>
+
+        <!-- Queixa Principal -->
+
+        <div class="card shadow-sm rounded-4 mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Queixa Principal</h5>
+            </div>
+
+            <div class="card-body">
+
+                <div class="mb-3">
+                    <label class="form-label">Motivo da Consulta</label>
+
+                    <textarea
+                        class="form-control"
+                        rows="3"
+                        name="chief_complaint"></textarea>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- História Atual -->
+
+        <div class="card shadow-sm rounded-4 mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">História da Condição Atual</h5>
+            </div>
+
+            <div class="card-body">
+
+                <textarea
+                    class="form-control"
+                    rows="5"
+                    name="history_present_condition"></textarea>
+
+            </div>
+        </div>
+
+        <!-- Dor -->
+
+        <div class="card shadow-sm rounded-4 mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Características da Dor</h5>
+            </div>
+
+            <div class="card-body">
+
+                <div class="row">
+
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">
+                            Intensidade (0-10)
+                        </label>
+
+                        <input
+                            type="number"
+                            min="0"
+                            max="10"
+                            class="form-control"
+                            name="pain_intensity">
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">
+                            Início dos sintomas
+                        </label>
+
+                        <input
+                            type="date"
+                            class="form-control"
+                            name="symptom_onset">
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">
+                            Frequência
+                        </label>
+
+                        <select
+                            class="form-select"
+                            name="pain_frequency">
+
+                            <option>Selecione</option>
+                            <option>Constante</option>
+                            <option>Intermitente</option>
+                            <option>Episódica</option>
+
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        Fatores que Agravam
+                    </label>
+
+                    <textarea
+                        class="form-control"
+                        rows="2"
+                        name="aggravating_factors"></textarea>
+                </div>
+
+                <div>
+                    <label class="form-label">
+                        Fatores que Aliviam
+                    </label>
+
+                    <textarea
+                        class="form-control"
+                        rows="2"
+                        name="relieving_factors"></textarea>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Histórico Médico -->
+
+        <div class="card shadow-sm rounded-4 mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Histórico Médico</h5>
+            </div>
+
+            <div class="card-body">
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        Comorbidades
+                    </label>
+
+                    <textarea
+                        class="form-control"
+                        rows="3"
+                        name="comorbidities"></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        Medicamentos em Uso
+                    </label>
+
+                    <textarea
+                        class="form-control"
+                        rows="3"
+                        name="medications"></textarea>
+                </div>
+
+                <div>
+                    <label class="form-label">
+                        Cirurgias e Internações
+                    </label>
+
+                    <textarea
+                        class="form-control"
+                        rows="3"
+                        name="surgeries"></textarea>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Estilo de Vida -->
+
+        <div class="card shadow-sm rounded-4 mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Estilo de Vida</h5>
+            </div>
+
+            <div class="card-body">
+
+                <div class="row">
+
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">
+                            Atividade Física
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="physical_activity">
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">
+                            Profissão
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="occupation">
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">
+                            Horas de Sono
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            name="sleep_hours">
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Objetivos -->
+
+        <div class="card shadow-sm rounded-4 mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Objetivos do Paciente</h5>
+            </div>
+
+            <div class="card-body">
+
+                <textarea
+                    class="form-control"
+                    rows="4"
+                    name="patient_goals"></textarea>
+
+            </div>
+        </div>
+
+        <!-- Botões -->
+
+        <div class="d-flex justify-content-end gap-2 mb-5">
+
+            <a href="{{ url_for('patients.patient_profile', id=patient_id) }}"
+               class="btn btn-secondary">
+                Cancelar
+            </a>
+
+            <button
+                type="submit"
+                class="btn btn-success">
+                Salvar Anamnese
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

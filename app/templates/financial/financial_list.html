@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h1>Financeiro</h1>
+
+        <a href="{{ url_for('financial.financial_form') }}"
+           class="btn btn-success">
+            Novo Lançamento
+        </a>
+
+    </div>
+
+    <div class="card shadow-sm rounded-4">
+
+        <div class="card-body">
+
+            <table class="table table-hover align-middle">
+
+                <thead>
+
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Paciente</th>
+                        <th>Tipo</th>
+                        <th>Valor</th>
+                        <th>Vencimento</th>
+                        <th>Status</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for record in records %}
+
+                    <tr>
+
+                        <td>
+                            {{ record.description }}
+                        </td>
+
+                        <td>
+
+                            {% if record.patient %}
+                                {{ record.patient.full_name }}
+                            {% else %}
+                                -
+                            {% endif %}
+
+                        </td>
+
+                        <td>
+
+                            {% if record.transaction_type == 'income' %}
+                                <span class="badge bg-success">
+                                    Receita
+                                </span>
+                            {% else %}
+                                <span class="badge bg-danger">
+                                    Despesa
+                                </span>
+                            {% endif %}
+
+                        </td>
+
+                        <td>
+                            R$ {{ "%.2f"|format(record.amount) }}
+                        </td>
+
+                        <td>
+
+                            {% if record.due_date %}
+                                {{ record.due_date.strftime('%d/%m/%Y') }}
+                            {% else %}
+                                -
+                            {% endif %}
+
+                        </td>
+
+                        <td>
+
+                            {% if record.status == 'paid' %}
+
+                                <span class="badge bg-success">
+                                    Pago
+                                </span>
+
+                            {% elif record.status == 'pending' %}
+
+                                <span class="badge bg-warning text-dark">
+                                    Pendente
+                                </span>
+
+                            {% elif record.status == 'cancelled' %}
+
+                                <span class="badge bg-secondary">
+                                    Cancelado
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+                    </tr>
+
+                    {% else %}
+
+                    <tr>
+
+                        <td colspan="6" class="text-center text-muted">
+
+                            Nenhum lançamento encontrado.
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

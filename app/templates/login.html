@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% set hide_layout = True %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+
+<div class="login-container ">
+
+        <div class="custom-card">
+               <div class="logo d-flex justify-content-center p-4">
+                <img src="{{ url_for('static', filename='img/logo_fisiocontrol.png') }}"
+                     width="400"
+                     class="img-fluid mb-4"
+                     id="logo">
+                </div>
+                <h2 class="mb-4">
+                        Login
+                </h2>
+
+                <form method="POST">
+
+                {{ form.hidden_tag() }}
+
+                <div class="mb-3">
+                        {{ form.email.label }}
+                        {{ form.email(class="form-control") }}
+                </div>
+
+                <div class="mb-3">
+                        {{ form.password.label }}
+                        {{ form.password(class="form-control") }}
+                </div>
+
+                <button
+                        class="btn btn-primary-custom"
+                        type="submit">
+
+                        Entrar
+
+                </button>
+
+                </form>
+
+        </div>
+
+</div>
+
+{% endblock %}

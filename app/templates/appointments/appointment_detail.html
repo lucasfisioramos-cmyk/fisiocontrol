@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h1>Detalhes do Agendamento</h1>
+
+        <a href="{{ url_for('appointments.appointment_list') }}"
+           class="btn btn-outline-secondary">
+            Voltar
+        </a>
+
+    </div>
+
+    <div class="card shadow-sm rounded-4">
+
+        <div class="card-body">
+
+            <div class="row mb-3">
+
+                <div class="col-md-6">
+
+                    <strong>Paciente</strong>
+
+                    <p>
+                        {{ appointment.patient.full_name }}
+                    </p>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <strong>Status</strong>
+
+                    <p>
+
+                        {% if appointment.status == 'scheduled' %}
+                            <span class="badge bg-primary">
+                                Agendado
+                            </span>
+
+                        {% elif appointment.status == 'confirmed' %}
+                            <span class="badge bg-success">
+                                Confirmado
+                            </span>
+
+                        {% elif appointment.status == 'completed' %}
+                            <span class="badge bg-secondary">
+                                Realizado
+                            </span>
+
+                        {% elif appointment.status == 'cancelled' %}
+                            <span class="badge bg-danger">
+                                Cancelado
+                            </span>
+
+                        {% elif appointment.status == 'no_show' %}
+                            <span class="badge bg-warning text-dark">
+                                Faltou
+                            </span>
+
+                        {% endif %}
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="mb-3">
+
+                <strong>Data e Hora</strong>
+
+                <p>
+                    {{ appointment.appointment_date }}
+                </p>
+
+            </div>
+
+            <div class="mb-3">
+
+                <strong>Observações</strong>
+
+                <div class="border rounded p-3 bg-light">
+
+                    {{ appointment.notes }}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

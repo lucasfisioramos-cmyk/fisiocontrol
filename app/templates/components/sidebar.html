@@ -1,0 +1,17 @@
+<div id="sidebar" class="sidebar">
+
+    <div class="sidebar-header">
+        <h2>Meu Sistema</h2>
+    </div>
+
+    <nav class="sidebar-links">
+        <ul class="sidebar-links">
+            <li><a href="{{ url_for('dashboard.dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('patients.patient_list') }}">Pacientes</a></li>
+            <li><a href="{{ url_for('appointments.appointment_list') }}">Agenda</a></li>
+            <li><a href="{{ url_for('financial.financial_list') }}">Financeiro</a></li>
+        </ul>
+</nav>
+
+</div>
+

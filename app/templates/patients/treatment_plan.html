@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h1>Plano Terapêutico</h1>
+
+        <a href="{{ url_for('patients.patient_profile', id=patient_id) }}"
+           class="btn btn-outline-secondary">
+            Voltar ao Perfil
+        </a>
+
+    </div>
+
+    <div class="card shadow-sm rounded-4">
+
+        <div class="card-body">
+
+            <form method="POST">
+
+                <!-- Objetivos -->
+
+                <div class="mb-4">
+
+                    <label class="form-label fw-bold">
+                        Objetivos do Tratamento
+                    </label>
+
+                    <textarea
+                        name="goals"
+                        rows="5"
+                        class="form-control"
+                        placeholder="Ex.: reduzir dor lombar, melhorar tolerância à caminhada, retornar à musculação..."></textarea>
+
+                </div>
+
+                <!-- Estratégias -->
+
+                <div class="mb-4">
+
+                    <label class="form-label fw-bold">
+                        Estratégias Terapêuticas
+                    </label>
+
+                    <textarea
+                        name="strategies"
+                        rows="8"
+                        class="form-control"
+                        placeholder="Ex.: educação em dor, exercícios graduados, terapia manual, Pilates terapêutico..."></textarea>
+
+                </div>
+
+                <!-- Orientações -->
+
+                <div class="mb-4">
+
+                    <label class="form-label fw-bold">
+                        Orientações ao Paciente
+                    </label>
+
+                    <textarea
+                        name="guidance"
+                        rows="5"
+                        class="form-control"
+                        placeholder="Orientações gerais, exercícios domiciliares, recomendações comportamentais..."></textarea>
+
+                </div>
+
+                <!-- Frequência -->
+
+                <div class="row mb-4">
+
+                    <div class="col-md-4">
+
+                        <label class="form-label fw-bold">
+                            Frequência Sugerida
+                        </label>
+
+                        <select
+                            name="frequency"
+                            class="form-select">
+
+                            <option value="">
+                                Selecione
+                            </option>
+
+                            <option>
+                                1x por semana
+                            </option>
+
+                            <option>
+                                2x por semana
+                            </option>
+
+                            <option>
+                                3x por semana
+                            </option>
+
+                            <option>
+                                Conforme necessidade
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <!-- Botões -->
+
+                <div class="d-flex justify-content-end gap-2">
+
+                    <a href="{{ url_for('patients.patient_profile', id=patient_id) }}"
+                       class="btn btn-secondary">
+                        Cancelar
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="btn btn-success">
+                        Salvar Plano
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

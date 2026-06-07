@@ -1,0 +1,84 @@
+.top-navbar {
+    height: 70px;
+    width: auto;
+    background: var(--secondary-color);
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    position: sticky;
+    top: 0;
+    z-index: 900;
+}
+
+/* MOBILE BUTTON */
+
+.mobile-menu-btn {
+    display: none;
+    border: none;
+    background: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* RIGHT */
+
+.navbar-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* SEARCH */
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    padding: 10px 14px;
+    border-radius: 12px;
+}
+
+.search-box input {
+    border: none;
+    background: transparent;
+    outline: none;
+}
+
+/* ICON BUTTON */
+
+.icon-btn {
+    border: none;
+    background: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* USER */
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-menu img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+    .search-box {
+        display: none;
+    }
+}
