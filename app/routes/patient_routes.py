@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import login_required
+from app.models import Anamnesis
 
 from app.services.patient_service import (
     create_patient,
@@ -77,19 +78,49 @@ def patient_edit(id):
 
 # ── Anamnese ──────────────────────────────────────────────────────────────────
 
-@patient_bp.route('/<int:id>/anamnesis', methods=['GET', 'POST'])
+@patient_bp.route('/<int:id>/anamnesis')
 @login_required
-def anamnesis_form(id):
+def patient_anamnesis(id):
+
+    patient = get_patient_by_id(id)
+
+    anamnesis = Anamnesis.query.filter_by(
+        patient_id=id
+    ).order_by(
+        Anamnesis.created_at.desc()
+    ).all()
+
+    return render_template(
+        'patients/anamnesis_detail.html',
+        patient=patient,
+        anamnesis=anamnesis
+    )
+
+@patient_bp.route('/<int:id>/anamnesis/new', methods=['GET', 'POST'])
+@login_required
+def create_anamnesis(id):
+
     patient = get_patient_by_id(id)
 
     if request.method == 'POST':
-        flash('Anamnese salva com sucesso!', 'success')
-        return redirect(url_for('patients.patient_profile', id=id))
+
+        # salvar anamnese
+
+        flash(
+            'Anamnese salva com sucesso!',
+            'success'
+        )
+
+        return redirect(
+            url_for(
+                'patients.patient_anamnesis',
+                id=id
+            )
+        )
 
     return render_template(
         'patients/anamnesis_form.html',
-        patient=patient,
-        patient_id=id
+        patient=patient
     )
 
 

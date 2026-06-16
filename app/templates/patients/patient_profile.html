@@ -17,36 +17,36 @@
             <hr>
             <div class="row g-3">
                 <div class="col-md-4">
-                    <a href="{{ url_for('patients.anamnesis_form', id=patient_id) }}"
-                       class="btn btn-outline-primary w-100">
-                        Anamnese
+                    <a href="{{ url_for('patients.patient_anamnesis', id=patient.id) }}" 
+                    class="btn btn-success w-100">
+                    Anamnese
                     </a>
                 </div>
 
                 <div class="col-md-4">
-                    <a href="{{ url_for('patients.evolution_list', id=patient_id) }}"
-                       class="btn btn-outline-primary w-100">
+                    <a href="{{ url_for('patients.evolution_list', id=patient.id) }}"
+                       class="btn btn-success w-100">
                         Evoluções
                     </a>
                 </div>
 
                 <div class="col-md-4">
-                    <a href="{{ url_for('patients.treatment_plan', id=patient_id) }}"
-                       class="btn btn-outline-primary w-100">
+                    <a href="{{ url_for('patients.treatment_plan', id=patient.id) }}"
+                       class="btn btn-success w-100">
                         Plano Terapêutico
                     </a>
                 </div>
 
                 <div class="col-md-4">
-                    <a href="{{ url_for('patients.appointments', id=patient_id) }}"
-                       class="btn btn-outline-primary w-100">
+                    <a href="{{ url_for('patients.appointments', id=patient.id) }}"
+                       class="btn btn-success w-100">
                         Agenda
                     </a>
                 </div>
 
                 <div class="col-md-4">
-                    <a href="{{ url_for('patients.documents', id=patient_id) }}"
-                       class="btn btn-outline-primary w-100">
+                    <a href="{{ url_for('patients.documents', id=patient.id) }}"
+                       class="btn btn-success w-100">
                         Documentos
                     </a>
                 </div>

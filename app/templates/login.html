@@ -10,7 +10,7 @@ Login
 
 <div class="login-container ">
 
-        <div class="custom-card">
+        <div class="custom-card justify-content-center">
                <div class="logo d-flex justify-content-center p-4">
                 <img src="{{ url_for('static', filename='img/logo_fisiocontrol.png') }}"
                      width="400"
@@ -42,6 +42,9 @@ Login
                         Entrar
 
                 </button>
+                <a href="{{ url_for('auth.register') }}" class="btn btn-outline-secondary">
+                    <i class="bi bi-person-plus me-1"></i> Criar conta
+                </a>
 
                 </form>
 

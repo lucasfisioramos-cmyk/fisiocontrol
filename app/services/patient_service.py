@@ -1,5 +1,5 @@
 from app.extensions import db
-from app.models.patient import Patient
+from app.models import Patient, Anamnesis
 from datetime import date
 from sqlalchemy.exc import IntegrityError
 
@@ -81,3 +81,9 @@ def deactivate_patient(patient_id):
     except Exception as e:
         db.session.rollback()
         return False, str(e)
+    
+def get_patient_anamnesis(patient_id):
+
+    return Anamnesis.query.filter_by(
+        patient_id=patient_id
+    ).first()

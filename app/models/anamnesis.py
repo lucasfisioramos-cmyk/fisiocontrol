@@ -1,18 +1,35 @@
 from app.extensions import db
+from datetime import datetime
 
 
 class Anamnesis(db.Model):
 
     __tablename__ = 'anamneses'
 
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(
+        db.Integer,
+        primary_key=True
+    )
 
     patient_id = db.Column(
         db.Integer,
         db.ForeignKey('patients.id'),
+        nullable=False,
+        index=True
+    )
+
+    # Identificação do episódio de tratamento
+    title = db.Column(
+        db.String(150),
         nullable=False
     )
 
+    status = db.Column(
+        db.String(20),
+        default='Ativo'
+    )
+
+    # Dados clínicos
     chief_complaint = db.Column(db.Text)
 
     current_history = db.Column(db.Text)
@@ -37,5 +54,21 @@ class Anamnesis(db.Model):
 
     patient_goals = db.Column(db.Text)
 
+    # Auditoria
+    created_at = db.Column(
+        db.DateTime,
+        default=datetime.utcnow
+    )
+
+    updated_at = db.Column(
+        db.DateTime,
+        default=datetime.utcnow,
+        onupdate=datetime.utcnow
+    )
+
     def __repr__(self):
-        return f'<Anamnesis {self.patient_id}>'
+        return (
+            f'<Anamnesis '
+            f'{self.id} - '
+            f'{self.title}>'
+        )

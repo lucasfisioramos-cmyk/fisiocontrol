@@ -38,11 +38,11 @@ class Patient(db.Model):
     )
     # RELACIONAMENTOS
 
-    anamnesis = db.relationship(
+    anamneses = db.relationship(
         'Anamnesis',
-        uselist=False,
         backref='patient',
-        cascade='all, delete-orphan'
+        lazy=True,
+        order_by='desc(Anamnesis.created_at)'
     )
 
     evolutions = db.relationship(

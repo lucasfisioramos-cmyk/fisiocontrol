@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block title %}Anamneses{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h2>Anamneses</h2>
+            <p class="text-muted mb-0">
+                {{ patient.full_name }}
+            </p>
+        </div>
+
+        <div>
+
+            <a
+                href="{{ url_for('patients.create_anamnesis', id=patient.id) }}"
+                class="btn btn-success">
+
+                Nova Anamnese
+
+            </a>
+
+            <a
+                href="{{ url_for('patients.patient_profile', id=patient.id) }}"
+                class="btn btn-secondary">
+
+                Voltar
+
+            </a>
+
+        </div>
+
+    </div>
+
+    {% if anamneses %}
+
+    <div class="card shadow-sm">
+
+        <div class="card-header">
+
+            <strong>Histórico de Anamneses</strong>
+
+        </div>
+
+        <div class="card-body p-0">
+
+            <table class="table table-hover mb-0">
+
+                <thead>
+
+                    <tr>
+                        <th>Data</th>
+                        <th>Título</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for anamnesis in anamneses %}
+
+                    <tr>
+
+                        <td>
+                            {{ anamnesis.created_at.strftime('%d/%m/%Y') }}
+                        </td>
+
+                        <td>
+                            {{ anamnesis.title }}
+                        </td>
+
+                        <td>
+
+                            {% if anamnesis.status == 'Ativo' %}
+
+                            <span class="badge bg-success">
+                                {{ anamnesis.status }}
+                            </span>
+
+                            {% else %}
+
+                            <span class="badge bg-secondary">
+                                {{ anamnesis.status }}
+                            </span>
+
+                            {% endif %}
+
+                        </td>
+
+                        <td class="text-end">
+
+                            <a
+                                href="{{ url_for('patients.view_anamnesis', anamnesis_id=anamnesis.id) }}"
+                                class="btn btn-outline-primary btn-sm">
+
+                                Visualizar
+
+                            </a>
+
+                            <a
+                                href="{{ url_for('patients.edit_anamnesis', anamnesis_id=anamnesis.id) }}"
+                                class="btn btn-outline-warning btn-sm">
+
+                                Editar
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    {% else %}
+
+    <div class="card shadow-sm">
+
+        <div class="card-body text-center py-5">
+
+            <h5>Nenhuma anamnese cadastrada</h5>
+
+            <p class="text-muted">
+                Este paciente ainda não possui registros de anamnese.
+            </p>
+
+            <a
+                href="{{ url_for('patients.create_anamnesis', id=patient.id) }}"
+                class="btn btn-success">
+
+                Criar Primeira Anamnese
+
+            </a>
+
+        </div>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}
