@@ -7,13 +7,13 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1>Anamnese</h1>
 
-        <a href="{{ url_for('patients.patient_profile', id=patient_id) }}"
+        <a href="{{ url_for('patients.patient_profile', id=patient.id) }}"
            class="btn btn-outline-secondary">
             Voltar ao Perfil
         </a>
     </div>
 
-    <form>
+    <form method="post">
 
         <!-- Queixa Principal -->
 
@@ -247,7 +247,7 @@
 
         <div class="d-flex justify-content-end gap-2 mb-5">
 
-            <a href="{{ url_for('patients.patient_profile', id=patient_id) }}"
+            <a href="{{ url_for('patients.patient_profile', id=patient.id) }}"
                class="btn btn-secondary">
                 Cancelar
             </a>
