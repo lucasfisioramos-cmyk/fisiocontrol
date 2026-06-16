@@ -24,4 +24,27 @@ Gerenciar pacientes, consultas e acompanhamento clínico.
 - Cadastro de pacientes
 - Agenda
 - Histórico clínico
-- Controle financeiro 
+- Controle financeiro
+
+# Como executar
+- Instalação
+1. Clonar o projeto
+git clone <repositorio>
+cd fisiocontrol
+2. Criar ambiente virtual
+python -m venv .venv
+3. Ativar ambiente
+
+Windows:
+
+.venv\Scripts\activate
+
+Linux/Mac:
+
+source .venv/bin/activate
+4. Instalar dependências
+pip install -r requirements.txt
+5. Criar banco de dados
+flask db upgrade
+6. Executar aplicação
+flask run
