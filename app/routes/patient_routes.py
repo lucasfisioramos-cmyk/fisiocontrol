@@ -17,10 +17,10 @@ def patient_list():
     patients = get_all_patients()
     return render_template('patients/patient_list.html')
 
-@patient_bp.route('/new')
+@patient_bp.route('/new', methods=['GET', 'POST'])
 @login_required
 def patient_form():
-    if request.method == 'POST':    
+    if request.method == 'POST':
 
         create_patient(request.form)
 

@@ -10,12 +10,12 @@ from wtforms.validators import DataRequired, Email
 class LoginForm(FlaskForm):
 
     email = StringField(
-    "Email",
-    validators=[
-        DataRequired(),
-        Email()
-    ]
-)
+        "Email",
+        validators=[
+            DataRequired(),
+            Email()
+        ]
+    )
 
     password = PasswordField(
         "Senha",

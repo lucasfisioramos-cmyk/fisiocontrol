@@ -1,5 +1,5 @@
 from app.models.appointment import Appointment
-from app import db
+from app.extensions import db
 
 def get_all_appointments():
     return Appointment.query.all()

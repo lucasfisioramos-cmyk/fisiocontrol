@@ -1,5 +1,5 @@
 from app.models.patient import Patient
-from app import db
+from app.extensions import db
 
 def get_all_patients():
     return Patient.query.all()

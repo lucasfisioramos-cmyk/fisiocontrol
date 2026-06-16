@@ -45,7 +45,7 @@ def financial_form():
     )
 
 
-@financial_bp.route('/')
+@financial_bp.route('/dashboard')
 @login_required
 def financial_dashboard():
     return render_template('financial/financial_dashboard.html')
