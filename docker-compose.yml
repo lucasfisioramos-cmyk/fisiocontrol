@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  db:
+    image: mariadb:10.11
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: fisiocontrol
+      MYSQL_USER: fisiouser
+      MYSQL_PASSWORD: fisiopass
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - '3306:3306'
+
+  web:
+    build: .
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: mysql+pymysql://fisiouser:fisiopass@db:3306/fisiocontrol
+      FLASK_APP: app:create_app
+    ports:
+      - '5000:5000'
+    depends_on:
+      - db
+
+volumes:
+  db_data:
