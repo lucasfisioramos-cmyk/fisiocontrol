@@ -91,6 +91,50 @@ p {
     width: 100%;
 }
 
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background: linear-gradient(180deg, rgba(23, 45, 79, 0.08) 0%, rgba(245, 247, 250, 0.95) 40%, rgba(245, 247, 250, 1) 100%);
+}
+
+.login-card {
+    width: 100%;
+    max-width: 420px;
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 28px;
+    box-shadow: 0 24px 68px rgba(15, 23, 42, 0.14);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    padding: 36px 32px;
+}
+
+.login-card img {
+    display: block;
+    margin: 0 auto 24px;
+}
+
+.login-card h2 {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.login-card .form-control {
+    border-radius: 14px;
+}
+
+.login-card .btn {
+    min-height: 48px;
+    border-radius: 14px;
+    width: 100%;
+}
+
+.login-card .btn-outline-secondary {
+    width: auto;
+    padding: 10px 22px;
+}
+
 /* =========================
    CARDS
 ========================= */
