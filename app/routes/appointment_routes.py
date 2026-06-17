@@ -1,9 +1,10 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import login_required
 from app.services.patient_service import get_all_patients
 from app.services.appointment_service import (
     get_all_appointments,
-    get_appointment_by_id
+    get_appointment_by_id,
+    create_appointment
 )
 
 appointment_bp = Blueprint(
@@ -23,9 +24,13 @@ def appointment_list():
         appointments=appointments
     )
 
-@appointment_bp.route('/new')
+@appointment_bp.route('/new', methods=['GET', 'POST'])
 @login_required
 def appointment_form():
+    if request.method == 'POST':
+        create_appointment(request.form)
+        return redirect(url_for('appointments.appointment_list'))
+
     patients = get_all_patients()
 
     return render_template(

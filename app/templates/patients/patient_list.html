@@ -23,18 +23,20 @@
             </thead>
 
             <tbody>
+                {% for patient in patients %}
                 <tr>
-                    <td>João Silva</td>
-                    <td>(19) 99999-9999</td>
-                    <td>Ativo</td>
+                    <td>{{ patient.full_name }}</td>
+                    <td>{{ patient.phone or '-' }}</td>
+                    <td>{{ 'Ativo' if patient.is_active else 'Inativo' }}</td>
                     <td>
-    <a href="{{ url_for('patients.patient_profile', id=1) }}"
-       class="btn btn-outline-success btn-sm">
-        Visualizar
-    </a>
-</td>
-
+                        <a href="{{ url_for('patients.patient_profile', id=patient.id) }}" class="btn btn-outline-success btn-sm">Visualizar</a>
+                    </td>
                 </tr>
+                {% else %}
+                <tr>
+                    <td colspan="4">Nenhum paciente cadastrado.</td>
+                </tr>
+                {% endfor %}
             </tbody>
         </table>
 

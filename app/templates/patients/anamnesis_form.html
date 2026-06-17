@@ -13,7 +13,8 @@
         </a>
     </div>
 
-    <form>
+    <form method="POST">
+        <input type="hidden" name="patient_id" value="{{ patient_id }}">
 
         <!-- Queixa Principal -->
 
@@ -45,10 +46,10 @@
 
             <div class="card-body">
 
-                <textarea
+                    <textarea
                     class="form-control"
                     rows="5"
-                    name="history_present_condition"></textarea>
+                    name="current_history"></textarea>
 
             </div>
         </div>
